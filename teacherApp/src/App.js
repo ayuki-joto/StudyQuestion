@@ -6,7 +6,6 @@ import {registerScreens, registerScreenVisibilityListener} from './screens';
 registerScreens();
 registerScreenVisibilityListener();
 
-
 const tabs = [{
   label: 'メンター面談',
   screen: 'studyquestion.Meeting',
