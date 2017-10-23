@@ -10,6 +10,23 @@ const instructions = Platform.select({
 
 class MeetingScreen extends React.Component {
 
+  static navigatorButtons = {
+    leftButtons: [
+      {
+        id: 'Notification',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/bell.png'),
+        id: 'notification'
+      }
+    ]
+  };
+
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
