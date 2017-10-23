@@ -10,22 +10,17 @@ registerScreenVisibilityListener();
 const tabs = [{
   label: 'メンター面談',
   screen: 'studyquestion.Meeting',
-  icon: require('../img/noimage.png'),
+  icon: require('../img/handshake.png'),
   title: 'メンター面談',
-}, {
-  label: '先生を選ぶ',
-  screen: 'studyquestion.Calling',
-  icon: require('../img/noimage.png'),
-  title: '電話で質問',
 }, {
   label: '質問履歴',
   screen: 'studyquestion.QuestionLog',
-  icon: require('../img/noimage.png'),
+  icon: require('../img/discuss-issue.png'),
   title: '文章で質問',
 }, {
   label: 'マイページ',
   screen: 'studyquestion.Mypage',
-  icon: require('../img/noimage.png'),
+  icon: require('../img/user.png'),
   title: 'マイページ',
 }];
 
