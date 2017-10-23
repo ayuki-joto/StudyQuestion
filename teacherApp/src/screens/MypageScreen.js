@@ -1,5 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import MypageMenu from '../components/MypageMenu';
+import UserInfo from '../components/UserInfo';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -60,16 +62,9 @@ class MypageScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Welcome to Mypage!
-      </Text>
-      <Text style={styles.instructions}>
-        To get started, edit App.js
-      </Text>
-      <Text style={styles.instructions}>
-        {instructions}
-      </Text>
-    </View>
+      <UserInfo />
+      <MypageMenu />
+      </View>
     );
   }
 }
