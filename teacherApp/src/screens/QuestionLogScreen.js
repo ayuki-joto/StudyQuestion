@@ -10,6 +10,37 @@ const instructions = Platform.select({
 
 class QuestionLogScreen extends React.Component {
 
+  static navigatorButtons = {
+    rightButtons:[
+      {
+        id: 'Write',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/checkbox-pen-outline.png'),
+        id: 'write'
+      }
+    ],
+    leftButtons: [
+      {
+        id: 'Notification',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/bell.png'),
+        id: 'notification'
+      }
+    ]
+  };
+
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));

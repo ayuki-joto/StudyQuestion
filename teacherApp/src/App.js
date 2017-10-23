@@ -15,7 +15,7 @@ const tabs = [{
   label: '質問履歴',
   screen: 'studyquestion.QuestionLog',
   icon: require('../img/discuss-issue.png'),
-  title: '文章で質問',
+  title: '質問履歴',
 }, {
   label: 'マイページ',
   screen: 'studyquestion.Mypage',
