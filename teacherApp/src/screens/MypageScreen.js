@@ -10,6 +10,37 @@ const instructions = Platform.select({
 
 class MypageScreen extends React.Component {
 
+  static navigatorButtons = {
+    rightButtons:[
+      {
+        id: 'UserSetting',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/user-setting.png'),
+        id: 'user-setting'
+      }
+    ],
+    leftButtons: [
+      {
+        id: 'Notification',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/bell.png'),
+        id: 'notification'
+      }
+    ]
+  };
+
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
