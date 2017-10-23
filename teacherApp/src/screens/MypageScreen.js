@@ -16,7 +16,14 @@ class MypageScreen extends React.Component {
   }
 
   onNavigatorEvent(event) {
- 
+    if(event.type === 'DeepLink') {
+      const parts = event.link.split('/');
+      if ( parts[0] === 'tab1' ) {
+        this.props.navigator.push({
+          screen: parts[1]
+        });
+      }
+    }
   }
 
   render() {
