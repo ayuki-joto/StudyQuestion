@@ -1,12 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import MeetingButton from '../components/MeetingButton';
 
 class MeetingScreen extends React.Component {
 
@@ -47,14 +41,9 @@ class MeetingScreen extends React.Component {
     return (
       <View style={styles.container}>
       <Text style={styles.welcome}>
-        Welcome to React Native!
+        時間になりました！
       </Text>
-      <Text style={styles.instructions}>
-        To get started, edit App.js
-      </Text>
-      <Text style={styles.instructions}>
-        {instructions}
-      </Text>
+      <MeetingButton />
     </View>
     );
   }
@@ -65,17 +54,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
   },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
+    fontSize: 16,
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    margin: 10,
+    fontWeight: 'bold',
   },
 });
 
