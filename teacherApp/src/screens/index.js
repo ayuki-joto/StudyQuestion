@@ -9,7 +9,6 @@ export function registerScreens() {
   Navigation.registerComponent('studyquestion.Meeting', () => Meeting);
   Navigation.registerComponent('studyquestion.Mypage', () => Mypage);
   Navigation.registerComponent('studyquestion.QuestionLog', () => QuestionLog);
-  Navigation.registerComponent('studyquestion.Calling', () => Calling);
 }
 
 export function registerScreenVisibilityListener() {
