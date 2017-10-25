@@ -5,9 +5,9 @@ class UserInfo extends React.Component<{}> {
 
     render() {
         return (
-          <View style={{ borderRadius: 30, borderWidth: 5, padding: 10, borderColor: '#003a66', margin: 5, width: 250, height: 250, justifyContent: 'center',alignItems: 'center'}}>
-              <Image source={require('../../img/teacher.png')} style={{}} />
-              <Text>ひろゆき</Text>
+          <View style={styles.container}>
+              <Image source={require('../../img/boy.png')} style={styles.image} />
+              <Text style={styles.name}>ひろゆき</Text>
               <Text>学校　静岡県立掛川工業高等学校</Text>
               <Text>学年　1年生</Text>
               <Text>志望校　国立東京大学</Text>
@@ -15,5 +15,34 @@ class UserInfo extends React.Component<{}> {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container : { 
+        borderRadius: 30, 
+        borderWidth: 3, 
+        padding: 10, 
+        borderColor: '#224BA7', 
+        margin: 5, 
+        width: 250, 
+        height: 250, 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+    },
+    image: {
+        backgroundColor : "#99db81",
+        borderRadius: 50,
+        width: 100,
+        height: 100,
+    },
+    name : {
+        fontSize: 24,
+        textAlign: 'center',
+        color: '#224BA7',
+        margin: 5,
+        fontWeight: 'bold',
+    }
+});
 
 export default UserInfo;

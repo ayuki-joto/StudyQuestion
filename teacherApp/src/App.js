@@ -12,7 +12,7 @@ const tabs = [{
   icon: require('../img/handshake.png'),
   title: 'メンター面談',
 }, {
-  label: '質問履歴',
+  label: '質問する',
   screen: 'studyquestion.QuestionLog',
   icon: require('../img/discuss-issue.png'),
   title: '質問履歴',
@@ -33,13 +33,13 @@ Navigation.startTabBasedApp({
     tabFontFamily: 'BioRhyme-Bold',
   },
   appStyle: {
-    tabBarBackgroundColor: '#003a66',
+    tabBarBackgroundColor: '#224BA7',
     navBarButtonColor: '#ffffff',
     tabBarButtonColor: '#ffffff',
     navBarTextColor: '#ffffff',
     tabBarSelectedButtonColor: '#ff505c',
     navigationBarColor: '#003a66',
-    navBarBackgroundColor: '#003a66',
+    navBarBackgroundColor: '#224BA7',
     statusBarColor: '#002b4c',
     tabFontFamily: 'BioRhyme-Bold',
   }
