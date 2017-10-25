@@ -31,6 +31,7 @@ Navigation.startTabBasedApp({
     tabBarButtonColor: '#5E6977',
     tabBarSelectedButtonColor: '#eacd56',
     tabFontFamily: 'BioRhyme-Bold',
+    initialTabIndex: 2,
   },
   appStyle: {
     tabBarBackgroundColor: '#224BA7',
