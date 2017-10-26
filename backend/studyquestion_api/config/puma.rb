@@ -1,3 +1,4 @@
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -14,6 +15,8 @@ port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
+
+bind "unix:///var/www/rails/StudyQuestion/backend/studyquestion_api/tmp/puma.sock"
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
@@ -51,6 +54,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
 #
+daemonize true
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
