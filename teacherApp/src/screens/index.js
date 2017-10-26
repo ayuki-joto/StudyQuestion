@@ -4,11 +4,14 @@ import Meeting from './MeetingScreen';
 import Mypage from './MypageScreen';
 import QuestionLog from './QuestionLogScreen';
 import Calling from './CallingScreen';
+import QuestionSubmission from './QuestionSubmissionScreen';
 
 export function registerScreens() {
   Navigation.registerComponent('studyquestion.Meeting', () => Meeting);
   Navigation.registerComponent('studyquestion.Mypage', () => Mypage);
   Navigation.registerComponent('studyquestion.QuestionLog', () => QuestionLog);
+
+  Navigation.registerComponent('studyquestion.Submission', () => QuestionSubmission);
 }
 
 export function registerScreenVisibilityListener() {

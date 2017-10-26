@@ -17,7 +17,7 @@ class QuestionLogScreen extends React.Component {
       },
       {
         icon: require('../../img/checkbox-pen-outline.png'),
-        id: 'write'
+        id: 'write',
       }
     ],
     leftButtons: [
@@ -47,6 +47,13 @@ class QuestionLogScreen extends React.Component {
       if ( parts[0] === 'tab1' ) {
         this.props.navigator.push({
           screen: parts[1]
+        });
+      }
+    }
+    if(event.type === 'NavBarButtonPress') {
+      if( event.id == 'write' ){
+        this.props.navigator.push({
+          screen: 'studyquestion.Submission'
         });
       }
     }
