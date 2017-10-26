@@ -9,7 +9,7 @@ _proj_path = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
 _proj_name = "studyquestion"
 _home = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
 pidfile "#{_home}/run/#{_proj_name}.pid"
-bind "unix://#{_home}/run/#{_proj_name}.sock"
+bind "unix:/#{_home}/run/#{_proj_name}.sock"
 directory _proj_path
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
