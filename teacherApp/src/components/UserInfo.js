@@ -7,10 +7,12 @@ class UserInfo extends React.Component<{}> {
         return (
           <View style={styles.container}>
               <Image source={require('../../img/boy.png')} style={styles.image} />
-              <Text style={styles.name}>ひろゆき</Text>
-              <Text>学校　静岡県立掛川工業高等学校</Text>
-              <Text>学年　1年生</Text>
-              <Text>志望校　国立東京大学</Text>
+              <Text style={styles.name}>まさ</Text>
+              <View style={{justifyContent: 'space-around'}}>
+              <Text>学校　私立○○高等学校</Text>
+              <Text>学年　　　1年生</Text>
+              <Text>志望校　慶應義塾大学</Text>
+              </View>
           </View>
         );
     }
