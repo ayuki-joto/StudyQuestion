@@ -31,6 +31,23 @@ class QuestionRoomScreen extends React.Component {
     }
   }
 
+  setColor(subjectText){
+    let color = subjectText === '国語' ? '#f39aa1' : 
+                  subjectText === '数学' ? '#859ecc' :
+                  subjectText === '英語' ? '#fee032' :
+                  subjectText === '理科' ? '#9ac03f' :
+                  subjectText === '社会' ? '#ffb02e' : '#99db81';
+    return ({
+      borderRadius: 30,
+      backgroundColor : color,
+      width: 60,
+      height: 60,
+      alignItems: 'center',
+      justifyContent: 'center', 
+      margin: 2,
+    });
+  }
+
   renderRow(rowData) {
       return (
         <View style={styles.container}>
@@ -55,7 +72,7 @@ class QuestionRoomScreen extends React.Component {
       <View>
         <View style={styles.container}>
         <View style={styles.renderRow_container}>
-            <View style={styles.subjectView}>
+            <View style={this.setColor(this.state.question.subject)}>
                 <Text style={styles.subject}>{this.state.question.subject[0]}</Text>
             </View>
             <View style={styles.rightContent}>
