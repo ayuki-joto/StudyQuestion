@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons';
 
 class QuestionSearchTextField extends React.Component<{}> {
 
-    searchQuestion (text) {
+    selectSubject(text) {
         console.log(text);
     }
 
@@ -13,9 +13,9 @@ class QuestionSearchTextField extends React.Component<{}> {
             <View style={styles.container}>
                 <TextInput 
                     style={styles.textinput}
-                    placeholder="🔍 教科や単元、キーワードなど"
+                    placeholder="▼科目"
                     placeholderTextColor='#a3a3a3'
-                    onChangeText={(searchText)=>{this.searchQuestion(searchText)}}
+                    onChangeText={(subject)=>{this.selectSubject(subject)}}
                 />
             </View>
         );
@@ -23,20 +23,21 @@ class QuestionSearchTextField extends React.Component<{}> {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#224BA7',
+	container: {
         flexDirection: 'row', 
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
+        borderWidth: 2,
+        borderColor: '#a3a3a3',
+        margin: 20,
     }, 
     textinput: {
         flex: 1,
-        backgroundColor: '#112656', 
         color: '#a3a3a3',
         textAlign: 'left',
-        fontSize: 10,
-        padding: 10, 
+        fontSize: 16,
+        padding: 10,
     },
 });
 

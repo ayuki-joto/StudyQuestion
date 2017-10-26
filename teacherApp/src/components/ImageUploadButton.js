@@ -21,11 +21,12 @@ const styles = StyleSheet.create({
         borderRadius: 10, 
         overflow: 'hidden',
         borderWidth: 3, 
-        borderColor: '#000000',
+        borderColor: '#a3a3a3',
         flexDirection: 'row', 
         justifyContent: 'space-around', 
         alignItems: 'center',
         padding: 30,
+        marginTop: 30, 
     }, 
 });
 

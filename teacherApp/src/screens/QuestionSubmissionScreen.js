@@ -1,12 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
 import ImageUploadButton from '../components/ImageUploadButton';
+import SubjectSelection from '../components/SubjectSelection';
+import QuestionTextArea from '../components/QuestionTextArea';
 
 class QuestionSubmissionScreen extends React.Component<{}> {
 
@@ -22,7 +18,7 @@ class QuestionSubmissionScreen extends React.Component<{}> {
         buttonFontWight: '600',
       },
       {
-        id: 'write',
+        id: 'submit',
       }
     ],
   };
@@ -35,6 +31,10 @@ class QuestionSubmissionScreen extends React.Component<{}> {
     return (
       <View style={styles.container}>
         <ImageUploadButton />
+        <View style={styles.container}>
+          <SubjectSelection />
+          <QuestionTextArea />
+        </View>
       </View>
     );
   }
@@ -43,6 +43,7 @@ class QuestionSubmissionScreen extends React.Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column', 
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#ffffff',
