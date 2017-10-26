@@ -1,0 +1,2 @@
+class Menter < ApplicationRecord
+end
