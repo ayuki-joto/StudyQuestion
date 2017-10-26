@@ -21,7 +21,7 @@ class QuestionList extends React.Component <{}>{
 
     renderRow(rowData) {
         return (
-                <TouchableOpacity style={styles.opacity} onPress={()=>{console.log(rowData.id)}}>
+                <TouchableOpacity style={styles.opacity} onPress={()=>{}}>
                     <View style={styles.container}>
                         <View style={styles.subjectView}>
                             <Text style={styles.subject}>{rowData.subject[0]}</Text>
