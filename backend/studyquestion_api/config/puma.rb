@@ -9,7 +9,7 @@ _proj_path = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
 _proj_name = "studyquestion"
 _home = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
 pidfile "#{_home}/run/#{_proj_name}.pid"
-bind "unix:/#{_home}/run/#{_proj_name}.sock"
+bind "unix:/#{_home}/sockets/puma.sock"
 directory _proj_path
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
@@ -54,7 +54,11 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # before_fork do
 #   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
 # end
-
+on_worker_boot do
+  require "active_record"
+  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+end
 # The code in the `on_worker_boot` will be called if you are using
 # clustered mode by specifying a number of `workers`. After each worker
 # process is booted, this block will be run. If you are using the `preload_app!`
