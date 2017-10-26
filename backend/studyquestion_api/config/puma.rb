@@ -1,7 +1,13 @@
-_proj_path = "#{File.expand_path("../..", __FILE__)}"
-_proj_name = File.basename(_proj_path)
-_home = ENV.fetch("HOME") { "/home/gaku" }
-
+# _proj_path = "#{File.expand_path("../..", __FILE__)}"
+# _proj_name = File.basename(_proj_path)
+# _home = ENV.fetch("HOME") { "/home/gaku" }
+#
+# pidfile "#{_home}/run/#{_proj_name}.pid"
+# bind "unix://#{_home}/run/#{_proj_name}.sock"
+# directory _proj_path
+_proj_path = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
+_proj_name = "studyquestion"
+_home = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
 pidfile "#{_home}/run/#{_proj_name}.pid"
 bind "unix://#{_home}/run/#{_proj_name}.sock"
 directory _proj_path
@@ -22,7 +28,7 @@ port        ENV.fetch("PORT") { 3000 }
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
-bind "unix:///var/www/rails/StudyQuestion/backend/studyquestion_api/tmp/sockets/puma.sock"
+# bind "unix:///var/www/rails/StudyQuestion/backend/studyquestion_api/tmp/sockets/puma.sock"
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
