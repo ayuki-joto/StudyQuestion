@@ -10,18 +10,18 @@ class QuestionList extends React.Component <{}>{
         this.itemHeight = Dimensions.get('window').height
         this.state = {
           dataSource: ds.cloneWithRows([
-              {'subject':'国語', 'question':'どのように質問を書くかがわからない。'},
-              {'subject':'数学', 'question':'forの二重ループがわからん。'},
-              {'subject':'英語', 'question':'I cannot implmenent application completlity. '}, 
-              {'subject':'理科', 'question':'弾道計算ができません。助けて。'},
-              {'subject':'社会', 'question':'徳川なんでしたっけ？'}]), 
+              {'subject':'国語', 'question':'どのように質問を書くかがわからない。', 'id':'0'},
+              {'subject':'数学', 'question':'forの二重ループがわからん。', 'id':'0'},
+              {'subject':'英語', 'question':'I cannot implmenent application completlity. ', 'id':'0'}, 
+              {'subject':'理科', 'question':'弾道計算ができません。助けて。', 'id':'0'},
+              {'subject':'社会', 'question':'徳川なんでしたっけ？', 'id':'0'}]), 
         };
     }
 
 
     renderRow(rowData) {
         return (
-                <TouchableOpacity style={styles.opacity} onPress={()=>{console.log(rowData.question)}}>
+                <TouchableOpacity style={styles.opacity} onPress={()=>{console.log(rowData.id)}}>
                     <View style={styles.container}>
                         <View style={styles.subjectView}>
                             <Text style={styles.subject}>{rowData.subject[0]}</Text>
