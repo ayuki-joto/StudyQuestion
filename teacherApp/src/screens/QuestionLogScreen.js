@@ -53,7 +53,8 @@ class QuestionLogScreen extends React.Component {
     if(event.type === 'NavBarButtonPress') {
       if( event.id == 'write' ){
         this.props.navigator.push({
-          screen: 'studyquestion.Submission'
+          screen: 'studyquestion.Submission',
+          title: '質問内容を入力',
         });
       }
     }
