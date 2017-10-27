@@ -1,5 +1,7 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import MypageMenu from '../components/MypageMenu';
+import UserInfo from '../components/UserInfo';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -10,28 +12,59 @@ const instructions = Platform.select({
 
 class MypageScreen extends React.Component {
 
+  static navigatorButtons = {
+    rightButtons:[
+      {
+        id: 'UserSetting',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/user-setting.png'),
+        id: 'user-setting'
+      }
+    ],
+    leftButtons: [
+      {
+        id: 'Notification',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/bell.png'),
+        id: 'notification'
+      }
+    ]
+  };
+
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   onNavigatorEvent(event) {
- 
+    if(event.type === 'DeepLink') {
+      const parts = event.link.split('/');
+      if ( parts[0] === 'tab1' ) {
+        this.props.navigator.push({
+          screen: parts[1]
+        });
+      }
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Welcome to Mypage!
-      </Text>
-      <Text style={styles.instructions}>
-        To get started, edit App.js
-      </Text>
-      <Text style={styles.instructions}>
-        {instructions}
-      </Text>
-    </View>
+      <UserInfo />
+      <MypageMenu />
+      </View>
     );
   }
 }
@@ -41,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
   },
   welcome: {
     fontSize: 20,

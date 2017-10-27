@@ -1,14 +1,25 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import MeetingButton from '../components/MeetingButton';
 
 class MeetingScreen extends React.Component {
+
+  static navigatorButtons = {
+    leftButtons: [
+      {
+        id: 'Notification',
+        disabled: true,
+        disableIconTint: true,
+        showAsAction: 'ifRoom',
+        buttonFontSize: 16,
+        buttonFontWight: '600',
+      },
+      {
+        icon: require('../../img/bell.png'),
+        id: 'notification'
+      }
+    ]
+  };
 
   constructor(props) {
     super(props);
@@ -16,21 +27,23 @@ class MeetingScreen extends React.Component {
   }
 
   onNavigatorEvent(event) {
- 
+    if(event.type === 'DeepLink') {
+      const parts = event.link.split('/');
+      if ( parts[0] === 'tab1' ) {
+        this.props.navigator.push({
+          screen: parts[1]
+        });
+      }
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
       <Text style={styles.welcome}>
-        Welcome to React Native!
+        時間になりました！
       </Text>
-      <Text style={styles.instructions}>
-        To get started, edit App.js
-      </Text>
-      <Text style={styles.instructions}>
-        {instructions}
-      </Text>
+      <MeetingButton />
     </View>
     );
   }
@@ -41,17 +54,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
   },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
+    fontSize: 16,
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    margin: 10,
+    fontWeight: 'bold',
+    paddingBottom: 20,
   },
 });
 
