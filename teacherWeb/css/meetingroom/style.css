@@ -1,0 +1,51 @@
+.col-md-9{
+  margin-top: 30px;
+  border-right: solid #898989 1px;
+}
+
+.videoBox img {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.videoBox {
+  width: 100%;
+}
+
+.recordeBox {
+  width: 100%;
+  margin-top: 30px;
+
+}
+
+.recordeBox-head {
+    display: flex;
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0 10px;
+    border-top: solid #224ba7 1px;
+    border-right: solid #224ba7 1px;
+    border-left: solid #224ba7 1px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recordeBox-head p {
+display: inline-block;
+font-size: 18px;
+color: #224ba7;
+}
+
+.recordeBox-head button {
+  display: block;
+}
+
+.textBox {
+  display: block;
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  border: solid #224ba7 1px;
+}
