@@ -44,12 +44,23 @@ class QuestionLogScreen extends React.Component {
     this.itemHeight = Dimensions.get('window').height
     this.state = {
       dataSource: ds.cloneWithRows([
-          {'subject':'国語', 'question':'どのように質問を書くかがわからない。', 'id':'0'},
-          {'subject':'数学', 'question':'forの二重ループがわからん。', 'id':'0'},
-          {'subject':'英語', 'question':'I cannot implmenent application completlity. ', 'id':'0'}, 
-          {'subject':'理科', 'question':'弾道計算ができません。助けて。', 'id':'0'},
-          {'subject':'社会', 'question':'徳川なんでしたっけ？', 'id':'0'}]), 
+          {'subject':0, 'question':'どのように質問を書くかがわからない。', 'id':'0'},
+          {'subject':1, 'question':'forの二重ループがわからん。', 'id':'1'},
+          {'subject':2, 'question':'I cannot implmenent application completlity. ', 'id':'2'}, 
+          {'subject':4, 'question':'弾道計算ができません。助けて。', 'id':'3'},
+          {'subject':3, 'question':'徳川なんでしたっけ？', 'id':'4'}]), 
     };
+  }
+
+  componentDidMount(){
+    fetch('http://18.220.168.203/question_students/1')
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData[0])
+        });
+      })
+      .done();
   }
 
   onNavigatorEvent(event) {
@@ -62,7 +73,7 @@ class QuestionLogScreen extends React.Component {
       }
     }
     if(event.type === 'NavBarButtonPress') {
-      if( event.id == 'write' ){
+      if( event.id === 'write' ){
         this.props.navigator.push({
           screen: 'studyquestion.Submission',
           title: '質問内容を入力',
@@ -81,12 +92,12 @@ class QuestionLogScreen extends React.Component {
     })
   }
 
-  setColor(subjectText){
-    let color = subjectText === '国語' ? '#f39aa1' : 
-                  subjectText === '数学' ? '#859ecc' :
-                  subjectText === '英語' ? '#fee032' :
-                  subjectText === '理科' ? '#9ac03f' :
-                  subjectText === '社会' ? '#ffb02e' : '#99db81';
+  setColor(subject){
+    let color = subject == 0 ? '#f39aa1' : 
+                  subject == 1 ? '#859ecc' :
+                  subject == 2 ? '#fee032' :
+                  subject == 3 ? '#9ac03f' :
+                  subject == 4 ? '#ffb02e' : '#99db81';
     return ({
       borderRadius: 30,
       backgroundColor : color,
@@ -98,17 +109,25 @@ class QuestionLogScreen extends React.Component {
     });
   }
 
+  setWord(subject) {
+    let word = subject == 0 ? '国' :
+                subject == 1 ? '数' :
+                subject == 2 ? '英' :
+                subject == 3 ? '社' :
+                subject == 4 ? '理' : '';
+    return(word);
+  }
+
   renderRow(rowData) {
     return (
       <TouchableOpacity style={styles.opacity} 
         onPress={()=>{this.onPressed(rowData.id)}}>
         <View style={styles.renderRow_container}>
           <View style={this.setColor(rowData.subject)}>
-            <Text style={styles.subject}>{rowData.subject[0]}</Text>
+            <Text style={styles.subject}>{this.setWord(rowData.subject)}</Text>
           </View>
           <View style={styles.rightContent}>
-            <Text style={styles.questionText}>質問内容　{rowData.question}</Text>
-            <Text style={styles.answerText}>ベストアンサー: 未選択　回答数: 1件</Text>
+            <Text style={styles.questionText}>質問内容　{rowData.text}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -158,6 +177,7 @@ const styles = StyleSheet.create({
   },
   rightContent: {
     padding: 10,
+    marginRight: 70,
   },
   answerText: {
     padding: 10,

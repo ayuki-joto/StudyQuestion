@@ -4,10 +4,6 @@ import Icon from 'react-native-vector-icons';
 
 class QuestionTextArea extends React.Component<{}> {
 
-    selectSubject(text) {
-        console.log(text);
-    }
-
     render(){
         return(
             <View style={styles.container}>
@@ -15,7 +11,7 @@ class QuestionTextArea extends React.Component<{}> {
                     style={styles.textinput}
                     placeholder='内容&#13;&#10;例）数学の統計で悩んでいます。&#13;&#10;「分散」ってなんですか？&#13;&#10;平均値とそれぞれの数値の差の二乗に対する平均値らしいですが、&#13;&#10;なんで必要なのかがわからない。&#13;&#10;'
                     placeholderTextColor='#a3a3a3'
-                    onChangeText={(subject)=>{this.selectSubject(subject)}}
+                    onChangeText={(text)=>{console.log(text)}}
                     multiline = {true}
                     numberOfLines = {7}
                 />
