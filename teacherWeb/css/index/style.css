@@ -1,0 +1,64 @@
+.main {
+  margin-top: 30px;
+}
+
+.selectWay {
+  margin: 30px;
+}
+
+.selectWay-nav {
+padding:30px 25%;
+}
+
+.question {
+
+}
+
+
+.qBox-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: scroll;
+  height: 700px;
+}
+
+.qContent {
+  border: solid #898989 1px;
+  height: 300px;
+  width: 20%;
+  border-radius: 15px;
+  margin: 10px 1%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+ .qContent .name {
+   display: inline-block;
+   font-size: 25px;
+  height: 25px;
+  float: left;
+ }
+
+ .qContent .tag {
+   display: inline-block;
+  width: 60%;
+  height: 30px;
+ }
+
+ .qContent img {
+   float: left;
+   width: 100%;
+ }
+
+ .qContent .user {
+   float: left;
+   width: 40%;
+ }
+
+ .qContent p {
+   display: block;
+   text-align: left;
+   margin-top: 13px;
+ }

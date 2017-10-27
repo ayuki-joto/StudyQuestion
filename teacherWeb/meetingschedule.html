@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Question</title>
+    <!--　普通のcssの読み込み-->
+    <link rel="stylesheet" href="css/header/style.css">
+    <link rel="stylesheet" href="css/meetingschedule/style.css">
+    <!-- BootstrapのCSSの読み込み　-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み-->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="head-name">
+            <img src="images/icons/top-icon.png" alt="">
+            <a class="serviceName" href="index.html">STUDY QUESTION</a>
+        </div>
+
+        <div class="head-search">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+  　学年　
+  <span class="caret"></span>
+</button>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">小学生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学1年生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学2年生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学3年生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校1年生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校2年生</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校3年生</a></li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+　科目　
+<span class="caret"></span>
+</button>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">国語</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数学</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">英語</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">社会</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">理科</a></li>
+                </ul>
+            </div>
+            <img src="images/icons/search.png" alt="">
+        </div>
+
+        <div class="head-button">
+            <!-- hrefにリンク先入れる -->
+            <a href="meetingschedule.html" class="text-center">面談する</a>
+        </div>
+
+        <div class="head-button">
+            <!-- hrefにリンク先入れる -->
+            <a href="studentlist.html" class="text-center">担当生徒</a>
+        </div>
+        <div class="head-icon">
+            <!-- この辺は通知とかアイコン良くわからないからいじってくだい -->
+            <img src="images/icons/notification.png" alt="">
+            <img src="images/icons/user.png" alt="">
+        </div>
+    </div>
+
+
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col-md-10 left-box">
+                <p>本日の面談</p>
+                <div class="schedule-info">
+                    <p class="schedule">Name<br>Time-Time</p>
+                    <button type="button"onclick="location.href='meetingroom.html'" class="btn btn-warning btn-lg">面談室に入る</button>
+                </div>
+                <p>今月の面談</p>
+                <img src="images/pic/calender-ex.png" alt="">
+            </div>
+            <div class="col-md-2 right-box">
+                <p>担当生徒</p>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="images/icons/yumika.png" alt="">
+                        </td>
+                        <td>
+                            <p>ゆみか</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/icons/tomoya.png" alt="">
+                        </td>
+                        <td>
+                            <p>ともや</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+    </div>
+    </div>
+
+</body>
+
+</html>

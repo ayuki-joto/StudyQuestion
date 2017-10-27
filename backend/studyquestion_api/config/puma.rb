@@ -1,3 +1,16 @@
+# _proj_path = "#{File.expand_path("../..", __FILE__)}"
+# _proj_name = File.basename(_proj_path)
+# _home = ENV.fetch("HOME") { "/home/gaku" }
+#
+# pidfile "#{_home}/run/#{_proj_name}.pid"
+# bind "unix://#{_home}/run/#{_proj_name}.sock"
+# directory _proj_path
+_proj_path = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
+_proj_name = "studyquestion"
+_home = "/var/www/rails/StudyQuestion/backend/studyquestion_api"
+pidfile "#{_home}/run/#{_proj_name}.pid"
+bind "unix:/#{_home}/sockets/puma.sock"
+directory _proj_path
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -14,6 +27,8 @@ port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
+
+# bind "unix:///var/www/rails/StudyQuestion/backend/studyquestion_api/tmp/sockets/puma.sock"
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
@@ -39,7 +54,11 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # before_fork do
 #   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
 # end
-
+on_worker_boot do
+  require "active_record"
+  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+end
 # The code in the `on_worker_boot` will be called if you are using
 # clustered mode by specifying a number of `workers`. After each worker
 # process is booted, this block will be run. If you are using the `preload_app!`
@@ -51,6 +70,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
 #
+daemonize true
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

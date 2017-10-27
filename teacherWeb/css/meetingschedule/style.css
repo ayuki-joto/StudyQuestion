@@ -1,0 +1,43 @@
+
+.left-box {
+  padding-top: 30px;
+  padding-left: 3% !important;
+  border-right: solid #898989 1px;
+}
+
+.right-box {
+  padding-top: 30px;
+}
+
+
+.schedule-info {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+
+}
+
+.schedule {
+  color: #898989;
+  font-size: 25px;
+  display: inline-block;
+  margin-right: 100px;
+}
+
+
+button {
+  display: inline-block;
+}
+
+tr, td, table {
+  border: solid #ffffff 5px;
+}
+
+table img {
+  width: 70px;
+}
+
+table p {
+  font-size: 25px;
+  margin: 0 auto;
+}

@@ -1,0 +1,73 @@
+.header {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px #898989 solid;
+}
+
+.qBox {
+  background-color: gray;
+  width: 150px;
+  height: 50px
+}
+
+.head-name {
+  flex-grow: 5;
+  margin-left: 2%;
+}
+
+.head-name img{
+  width:50px;
+  height: 50px;
+}
+
+.head-name .serviceName{
+  color: #224ba7;
+  font-size: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.head-search {
+  flex-grow: 2;
+}
+
+.head-search img {
+  width: 20px;
+}
+
+.head-search .qBox {
+  background-color: #efefef;
+  border-radius: 5px;
+  width: 90%;
+  height: 40px;
+  margin-right: 5%;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+.head-button {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.head-button a{
+  color: #224ba7;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.head-icon {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.head-icon img {
+  width: 50px;
+  height: 50px;
+  display: block;
+
+}

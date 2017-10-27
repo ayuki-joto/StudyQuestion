@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: studyquestion
   socket: /tmp/mysql.sock
 
 development:
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: studyquestion_api_production
-  username: studyquestion_api
-  password: <%= ENV['STUDYQUESTION_API_DATABASE_PASSWORD'] %>
+  database: studyquestion
+  username: root
+  password: studyquestion
