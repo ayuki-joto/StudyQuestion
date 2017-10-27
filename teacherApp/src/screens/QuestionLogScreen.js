@@ -96,8 +96,8 @@ class QuestionLogScreen extends React.Component {
     let color = subject == 0 ? '#f39aa1' : 
                   subject == 1 ? '#859ecc' :
                   subject == 2 ? '#fee032' :
-                  subject == 3 ? '#9ac03f' :
-                  subject == 4 ? '#ffb02e' : '#99db81';
+                  subject == 4 ? '#9ac03f' :
+                  subject == 3 ? '#ffb02e' : '#99db81';
     return ({
       borderRadius: 30,
       backgroundColor : color,
@@ -113,8 +113,8 @@ class QuestionLogScreen extends React.Component {
     let word = subject == 0 ? '国' :
                 subject == 1 ? '数' :
                 subject == 2 ? '英' :
-                subject == 3 ? '社' :
-                subject == 4 ? '理' : '';
+                subject == 4 ? '社' :
+                subject == 3 ? '理' : '';
     return(word);
   }
 
