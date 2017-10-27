@@ -15,6 +15,11 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Credentials' => 'true',
+    'Access-Control-Allow-Origin' => 'http://localhost:3355',
+    'Access-Control-Request-Method' => '*'
+}
 
 module StudyquestionApi
   class Application < Rails::Application
