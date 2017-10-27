@@ -97,47 +97,47 @@
         <div class="qBox-container">
             <div class="qContent">
                 <img class="user" src="images/icons/yumika.png" alt="">
-                <p class="name">Name</p>
+                <p class="name" id="1-name"></p>
                 <div class="tag">
-                    <span class="label label-default">中３</span>
+                    <span id="1-year" class="label label-default"></span>
+                    <span  class="label label-default">数学</span>
+                    <span  class="label label-default">担当</span>
+                </div>
+                <p id="1-text"></p>
+                <img src="images/pic/1.png" alt="">
+            </div>
+            <div class="qContent">
+                <img class="user" src="images/icons/tomoya.png" alt="">
+                <p class="name" id="2-name"></p>
+                <div class="tag">
+                    <span id="2-year" class="label label-default"></span>
                     <span class="label label-default">国語</span>
                     <span class="label label-default">担当</span>
                 </div>
-                <p>質問内容わーい</p>
-                <img src="images/pic/ex-pic.jpg" alt="">
+                <p id="2-text"></p>
+                <img src="images/pic/2.png" alt="">
+            </div>
+            <div class="qContent">
+                <img class="user" src="images/icons/tomoya.png" alt="">
+                <p class="name" id="3-name"></p>
+                <div class="tag">
+                    <span id="3-year" class="label label-default"></span>
+                    <span class="label label-default">理科</span>
+                    <span class="label label-default">担当</span>
+                </div>
+                <p id="3-text"></p>
+                <img src="images/pic/3.png" alt="">
             </div>
             <div class="qContent">
                 <img class="user" src="images/icons/yumika.png" alt="">
-                <p class="name">Name</p>
+                <p class="name" id="4-name"></p>
                 <div class="tag">
-                    <span class="label label-default">中３</span>
-                    <span class="label label-default">国語</span>
+                    <span id="4-year" class="label label-default"></span>
+                    <span class="label label-default">英語</span>
                     <span class="label label-default">担当</span>
                 </div>
-                <p>質問内容わーい</p>
-                <img src="images/pic/ex-pic.jpg" alt="">
-            </div>
-            <div class="qContent">
-                <img class="user" src="images/icons/yumika.png" alt="">
-                <p class="name">Name</p>
-                <div class="tag">
-                    <span class="label label-default">中３</span>
-                    <span class="label label-default">国語</span>
-                    <span class="label label-default">担当</span>
-                </div>
-                <p>質問内容わーい</p>
-                <img src="images/pic/ex-pic.jpg" alt="">
-            </div>
-            <div class="qContent">
-                <img class="user" src="images/icons/yumika.png" alt="">
-                <p class="name">Name</p>
-                <div class="tag">
-                    <span class="label label-default">中３</span>
-                    <span class="label label-default">国語</span>
-                    <span class="label label-default">担当</span>
-                </div>
-                <p>質問内容わーい</p>
-                <img src="images/pic/ex-pic.jpg" alt="">
+                <p id="4-text"></p>
+                <img src="images/pic/4.png" alt="">
             </div>
             <div class="qContent">
                 <img class="user" src="images/icons/yumika.png" alt="">
@@ -294,7 +294,17 @@
             // 通信成功時の処理
             success: function (result, textStatus, xhr) {
                 // 入力値を初期化
+                resultdata =[];
+                count=1;
                 console.log(result);
+                result.forEach(function (val,key) {
+                    val.forEach(function (vals, keys) {
+                        $('#'+count+'-name').text(vals['student_name']);
+                        $('#'+count+'-year').text(vals['school_school_year']);
+                        $('#'+count+'-text').text(vals['text']);
+                        count++;
+                    })
+                })
 //                $('#title').text('Q'+(result['count']+1)+'       '+result['enquete']['title']);
 //                $('#ans').val(result['enquete']['choices'][0]['id']);
 //                $('#seq').val(result['sequence_token']);
@@ -307,54 +317,6 @@
             }
         });
     });
-
-//    $('#the-form').submit(function (event) {
-//        // HTMLでの送信をキャンセル
-//        event.preventDefault();
-//
-//        // 操作対象のフォーム要素を取得
-//        var $form = $(this);
-//
-//        // 送信ボタンを取得
-//        var $button = $form.find('button');
-//
-//        // 送信
-//        $.ajax({
-//            url: $form.attr('action'),
-//            type: $form.attr('method'),
-//            data: $form.serialize(),
-//            timeout: 10000,  // 単位はミリ秒
-//
-//            // 送信前
-//            beforeSend: function (xhr, settings) {
-//                // ボタンを無効化し、二重送信を防止
-//                $button.attr('disabled', true);
-//            },
-//            // 応答後
-//            complete: function (xhr, textStatus) {
-//                // ボタンを有効化し、再送信を許可
-//                $button.attr('disabled', false);
-//            },
-//
-//            // 通信成功時の処理
-//            success: function (result, textStatus, xhr) {
-//                // 入力値を初期化
-//                $form[0].reset();
-//                console.log(result);
-//                document.cookie = 'token=' + result['token'];
-////                alert('OK');
-//                if (result['count'] == 4){
-//                    location.href = 'level.html';
-//                }
-//                location.href = 'level.html';
-//            },
-//
-//            // 通信失敗時の処理
-//            error: function (xhr, textStatus, error) {
-//                alert('NG...');
-//            }
-//        });
-//    });
 </script>
 
 </html>
