@@ -8,6 +8,7 @@
     <!--　普通のcssの読み込み-->
     <link rel="stylesheet" href="css/header/style.css">
     <link rel="stylesheet" href="css/meetingroom/style.css">
+    <link rel="stylesheet" href="css/footer/style.css">
     <!-- BootstrapのCSSの読み込み　-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- jQuery読み込み -->
@@ -92,27 +93,35 @@
 
       </div>
       <div class="col-md-3">
-        <dev class="student-info">
+        <div class="student-info">
         <p>生徒情報</p>
-        <img src="images/icons/yumika.png" alt="">
-        <p>ゆみか</p>
-        <p>学校：私立〇〇高等学校</p>
-        <p>学年：1年生</p>
+        <img src="images/icons/tomoya.png" alt="">
+        <p class="name" id="name"></p>
+        <p id="school"></p>
+        <p id="year"></pid>
         <p>志望校：慶應義塾大学</p>
-        </dev>
+      </div>
 
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                過去のメモ
+              </a>
+            </h4>
+          </div>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          
+          ▼2017/10/20
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        コンテンツ１
+        志望校は変わらず相変わらず頑張っている様子。<br>ただやはり部活の忙しさにかまかけて学習習慣を継続できないことを悩んでいる様子です。<br>そこでオススメしたのはあれやこれやそれややれや色々やってみるということです。
+
       </div>
     </div>
   </div>
@@ -120,13 +129,13 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          コンテンツ２のトグルボタン
+          ▼2017/10/14
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        コンテンツ２
+        志望校は変わらず相変わらず頑張っている様子。<br>ただやはり部活の忙しさにかまかけて学習習慣を継続できないことを悩んでいる様子です。<br>そこでオススメしたのはあれやこれやそれややれや色々やってみるということです。
       </div>
     </div>
   </div>
@@ -134,15 +143,49 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          コンテンツ３のトグルボタン
+          ▼2017/10/08
         </a>
       </h4>
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        コンテンツ３
+        志望校は変わらず相変わらず頑張っている様子。<br>ただやはり部活の忙しさにかまかけて学習習慣を継続できないことを悩んでいる様子です。<br>そこでオススメしたのはあれやこれやそれややれや色々やってみるということです。
       </div>
     </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          ▼2017/10/02
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        志望校は変わらず相変わらず頑張っている様子。<br>ただやはり部活の忙しさにかまかけて学習習慣を継続できないことを悩んでいる様子です。<br>そこでオススメしたのはあれやこれやそれややれや色々やってみるということです。
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          ▼2017/09/28
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        志望校は変わらず相変わらず頑張っている様子。<br>ただやはり部活の忙しさにかまかけて学習習慣を継続できないことを悩んでいる様子です。<br>そこでオススメしたのはあれやこれやそれややれや色々やってみるということです。
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   </div>
 </div>
 
@@ -150,9 +193,36 @@
     </div>
 
     <div class="footer">
+      <p>Copyright　©️Study Question All Rights Reserverd.</p>
 
     </div>
   </div>
 
 </body>
+<script type="application/javascript">
+    $(function () {
+        $.ajax({
+            url: 'http://18.220.168.203/students/1',
+            type: 'get',
+            data: null,
+            timeout: 10000,  // 単位はミリ秒
+
+            // 通信成功時の処理
+            success: function (result, textStatus, xhr) {
+                // 入力値を初期化
+                resultdata = [];
+                console.log(result);
+                $('#name').text(result['name']);
+                $('#year').text(result['school_year']);
+                $('#school').text(result['school']);
+            },
+
+            // 通信失敗時の処理
+            error: function (xhr, textStatus, error) {
+                alert('NG...');
+            }
+        });
+    });
+</script>
+
 </html>
