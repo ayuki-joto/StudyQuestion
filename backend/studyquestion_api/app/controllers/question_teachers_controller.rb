@@ -43,6 +43,7 @@ class QuestionTeachersController < ApplicationController
         :photo => @question_detail[:photo],
         :student_name => @student[:name],
         :student_icon => @student[:icon],
+        :student_school_year => @student[:school_year],
         :menter => menter[:menter]
     ]
 

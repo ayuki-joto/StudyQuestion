@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Study Question</title>
+        <!--　普通のcssの読み込み-->
+        <link rel="stylesheet" href="css/header/style.css">
+        <link rel="stylesheet" href="css/footer/style.css">
+        <link rel="stylesheet" href="css/question_detail.css">
+        <!-- BootstrapのCSSの読み込み　-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- jQuery読み込み -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- BootstrapのJS読み込み-->
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <title>question</title>
+</head>
+<body>
+<div class="header">
+    <div class="head-name">
+        <img src="images/icons/top-icon.png" alt="">
+        <a class="serviceName" href="index.html">STUDY QUESTION</a>
+    </div>
+
+    <div class="head-search">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                　学年　
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">小学生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学1年生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学2年生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中学3年生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校1年生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校2年生</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">高校3年生</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                　科目　
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">国語</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数学</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">英語</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">社会</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">理科</a></li>
+            </ul>
+        </div>
+        <img src="images/icons/search.png" alt="">
+    </div>
+
+    <div class="head-button">
+        <!-- hrefにリンク先入れる -->
+        <a href="meetingschedule.html" class="text-center">面談する</a>
+    </div>
+
+    <div class="head-button">
+        <!-- hrefにリンク先入れる -->
+        <a href="studentlist.html" class="text-center">担当生徒</a>
+    </div>
+    <div class="head-icon">
+        <!-- この辺は通知とかアイコン良くわからないからいじってくだい -->
+        <img src="images/icons/notification.png" alt="">
+        <img src="images/icons/user.png" alt="">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10  " style="margin-top: 20px; ">
+            <div class="media">
+                <a class="media-left" href="#">
+                    <img id="icon" src="images/icons/yumika.png" style="width: 150px">
+                </a>
+                <div class="media-body">
+                    <h1 class="media-heading " id="name" style="margin-top: 50px"></h1>
+                    <div class="tag">
+                        <span id="year" class="label label-default"></span>
+                        <span class="label label-default">数学</span>
+                        <span class="label label-default">担当</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p id="text" style="font-size: medium"></p>
+                <img src="images/pic/1.png" id="question" style="width: 900px; height: 500px">
+            </div>
+            <div class="recordeBox">
+                <form id="the-form" action="http://18.220.168.203/answers" method="post">
+                    <div class="form-group ">
+                        <input type="hidden" name="question_id" value="1">
+                        <input type="hidden" name="teacher_id" value="1">
+                        <textarea class=" form-control" rows="5" name="text" id="comment" style="width: 900px"></textarea>
+                        <input type="submit" value="投稿する" class="btn btn-primary btn-lg button center-block" style="margin-top: 20px">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="footer">
+    <p>Copyright　©️Study Question All Rights Reserverd.</p>
+</div>
+
+</body>
+<script type="application/javascript">
+    $(function () {
+        $.ajax({
+            url: 'http://18.220.168.203/question_teachers/1',
+            type: 'get',
+            data: null,
+            timeout: 10000,  // 単位はミリ秒
+
+            // 通信成功時の処理
+            success: function (result, textStatus, xhr) {
+                // 入力値を初期化
+                resultdata = [];
+                console.log(result);
+                result.forEach(function (key, val) {
+                    console.log(key);
+                    $('#name').text(key['student_name']);
+                    $('#year').text(key['student_school_year']);
+                    $('#text').text(key['text']);
+                });
+
+            },
+            // 通信失敗時の処理
+            error: function (xhr, textStatus, error) {
+                alert('NG...');
+            }
+        });
+    });
+
+    $('#the-form').submit(function (event) {
+        // HTMLでの送信をキャンセル
+        event.preventDefault();
+
+        // 操作対象のフォーム要素を取得
+        var $form = $(this);
+
+        // 送信ボタンを取得
+        var $button = $form.find('button');
+
+        // 送信
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            data: $form.serialize(),
+            timeout: 10000,  // 単位はミリ秒
+
+            // 送信前
+            beforeSend: function (xhr, settings) {
+                // ボタンを無効化し、二重送信を防止
+                $button.attr('disabled', true);
+            },
+            // 応答後
+            complete: function (xhr, textStatus) {
+                // ボタンを有効化し、再送信を許可
+                $button.attr('disabled', false);
+            },
+
+            // 通信成功時の処理
+            success: function (result, textStatus, xhr) {
+                // 入力値を初期化
+                $form[0].reset();
+                console.log(result);
+
+            },
+
+            // 通信失敗時の処理
+            error: function (xhr, textStatus, error) {
+                alert('NG...');
+            }
+        });
+    });
+</script>
+</html>

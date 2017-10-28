@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   # POST /answers
   def create
-    @answer = Answer.new(answer_params)
+    @answer = Answer.new(JSON.parse(answer_params))
 
     if @answer.save
       render json: @answer, status: :created, location: @answer
